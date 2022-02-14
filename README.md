@@ -8,17 +8,17 @@ This project comprises a collection of scripts to build a modern GNUstep toolcha
 
 ## Libraries
 
-The toolchain currently consists of the following libraries:
+The toolchain currently consists of the following libraries, many now provided via a fork of Microsoft's VCPKG at https://github.com/screswel/vcpkg:
 
 - [GNUstep Base Library](https://github.com/gnustep/libs-base) (Foundation)
 - [GNUstep CoreBase Library](https://github.com/gnustep/libs-corebase) (CoreFoundation)
 - [libobjc2](https://github.com/gnustep/libobjc2) (using gnustep-2.0 runtime)
 - [libdispatch](https://github.com/apple/swift-corelibs-libdispatch) (official Apple release from the Swift Core Libraries)
-- [libffi](https://github.com/libffi/libffi)
-- [libiconv](https://github.com/kiyolee/libiconv-win-build)
-- [libxml2](https://github.com/GNOME/libxml2)
-- [libxslt](https://github.com/GNOME/libxslt)
-- [ICU](https://docs.microsoft.com/en-us/windows/win32/intl/international-components-for-unicode--icu-) (using system-provided DLL on Windows 10 version 1903 or later)
+- [libffi](vcpkg install libffi:x64-windows)
+- [libiconv](vcpkg install libiconv:x64-windows)
+- [libxml2](vcpkg install libxml2:x64-windows)
+- [libxslt](vcpkg install libxslt:x64-windows)
+- [ICU](vcpkg install icu:x64-windows)
 
 
 ## Installation
@@ -30,7 +30,19 @@ You should end up with the folders `C:\GNUstep\x64\Debug` and `C:\GNUstep\x64\Re
 
 ## Using the Toolchain from the Command Line
 
-Building and linking Objective-C code using the toolchain and `clang` requires a number of compiler and linker flags.
+Building and linking Objective-C code using the toolchain and `clang` requires VCPKG and a number of compiler and linker flags.
+
+Clone and bootstrap a fork of Microsoft's VCPKG, from a Visual Studio command prompt:
+
+    mkdir C:\src
+    cd C:\src
+    git clone https://github.com/screswel/vcpkg
+    .\bootstrap-vcpkg.bat -disableMetrics
+    .\vcpkg install libffi:x64-windows
+    .\vcpkg install libiconv:x64-windows
+    .\vcpkg install libxml2:x64-windows
+    .\vcpkg install libxslt:x64-windows
+    .\vcpkg install icu:x64-windows
 
 When building in a Bash environment (like an MSYS2 shell), the `gnustep-config` tool can be used to query the necessary flags for building and linking:
 
