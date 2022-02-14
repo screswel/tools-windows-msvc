@@ -17,6 +17,12 @@ echo
 echo "### Loading GNUstep environment"
 . "$UNIX_INSTALL_PREFIX/share/GNUstep/Makefiles/GNUstep.sh"
 
+# VCPKG - configure script needs help (finding DLLs)
+export PATH=$PATH:`cygpath $VCPKG_ROOT`/installed/x64-windows/bin
+
+# VCPKG - configure script needs help (finding pkg-config info)
+export PKG_CONFIG_LIBDIR=`cygpath $VCPKG_ROOT`/installed/x64-windows/lib/pkgconfig
+
 echo
 echo "### Running configure"
 ./configure \

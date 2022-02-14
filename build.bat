@@ -84,21 +84,11 @@ if %errorlevel% neq 0 call :error_missing_command git, "'choco install git'"
 where cmake
 if %errorlevel% neq 0 call :error_missing_command cmake, "Visual Studio or 'choco install cmake --installargs ADD_CMAKE_TO_PATH=System'"
 where ninja
-if %errorlevel% neq 0 call :error_missing_command ninja, "'choco install ninja'"
+if %errorlevel% neq 0 call :error_missing_command ninja, "Visual Studio or 'choco install ninja'"
 where clang-cl
 if %errorlevel% neq 0 call :error_missing_command clang-cl, "Visual Studio or 'choco install llvm'"
 call %BASH% 'true'
 if %errorlevel% neq 0 call :error_missing_command MSYS2, "'choco install msys2'"
-call %BASH% 'which make'
-if %errorlevel% neq 0 call :error_missing_command make, "'pacman -S make' in MSYS2"
-call %BASH% 'which autoconf'
-if %errorlevel% neq 0 call :error_missing_command autoconf, "'pacman -S autoconf' in MSYS2"
-call %BASH% 'which automake'
-if %errorlevel% neq 0 call :error_missing_command automake, "'pacman -S automake' in MSYS2"
-call %BASH% 'which libtool'
-if %errorlevel% neq 0 call :error_missing_command libtool, "'pacman -S libtool' in MSYS2"
-call %BASH% 'which pkg-config'
-if %errorlevel% neq 0 call :error_missing_command pkg-config, "'pacman -S pkg-config' in MSYS2"
 
 :: create directories
 if not exist "%SRCROOT%" (mkdir "%SRCROOT%" || exit 1)
