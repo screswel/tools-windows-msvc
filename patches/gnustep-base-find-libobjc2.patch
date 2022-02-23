@@ -1,0 +1,31 @@
+diff --git a/configure.ac b/configure.ac
+index 1e8b0883b..b0e5d8e0c 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -1351,6 +1351,26 @@ if test "$gs_cv_objc_libdir" != "NONE"; then
+   case $host_os in
+     mingw*|windows) PATH=$PATH:$gs_cv_objc_libdir;;
+   esac
++else
++  #
++  # Check to see if the libobjc library is provided by pkg-config (e.g. VCPKG).
++  #
++  if test -n "$PKG_CONFIG"; then
++    if $PKG_CONFIG --exists libobjc; then
++      gs_cv_objc_libdir="`$PKG_CONFIG --libs-only-L libobjc`"
++      gs_cv_objc_incdir="`$PKG_CONFIG --cflags-only-I libobjc`"
++      
++      INCLUDE_FLAGS="$INCLUDE_FLAGS $gs_cv_objc_incdir"
++      LDIR_FLAGS="$LDIR_FLAGS $gs_cv_objc_libdir"
++      CPPFLAGS="$CPPFLAGS $gs_cv_objc_incdir"
++      LDFLAGS="$LDFLAGS $gs_cv_objc_libdir"
++      
++      # add to path on Windows for config checks to find DLL at runtime
++      case $host_os in
++        mingw*|windows) PATH=$PATH:$gs_cv_objc_libdir;;
++      esac
++    fi
++  fi
+ fi
+ 
+ #--------------------------------------------------------------------
