@@ -12,8 +12,8 @@ The toolchain currently consists of the following libraries, many now provided v
 
 - [GNUstep Base Library](https://github.com/gnustep/libs-base) (Foundation)
 - [GNUstep CoreBase Library](https://github.com/gnustep/libs-corebase) (CoreFoundation)
-- [libobjc2](https://github.com/gnustep/libobjc2) (using gnustep-2.0 runtime)
-- [libdispatch](https://github.com/apple/swift-corelibs-libdispatch) (official Apple release from the Swift Core Libraries)
+- [libobjc2](vcpkg install libobjc2:x64-windows) (using gnustep-2.0 runtime)
+- [libdispatch](vcpkg install libdispatch:x64-windows) (official Apple release from the Swift Core Libraries)
 - [libffi](vcpkg install libffi:x64-windows)
 - [libiconv](vcpkg install libiconv:x64-windows)
 - [libxml2](vcpkg install libxml2:x64-windows)
@@ -43,6 +43,8 @@ Clone and bootstrap a fork of Microsoft's VCPKG, from a Visual Studio command pr
     .\vcpkg install libxml2:x64-windows
     .\vcpkg install libxslt:x64-windows
     .\vcpkg install icu:x64-windows
+    .\vcpkg install libobjc2:x64-windows
+    .\vcpkg install libdispatch:x64-windows
 
 When building in a Bash environment (like an MSYS2 shell), the `gnustep-config` tool can be used to query the necessary flags for building and linking:
 

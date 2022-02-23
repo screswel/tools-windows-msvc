@@ -14,7 +14,7 @@ if  "%VSCMD_ARG_TGT_ARCH%" == "" (
 if not defined BUILD_TYPES set BUILD_TYPES=Debug Release
 if not defined SRCROOT set SRCROOT=%ROOT_DIR%\src
 if not defined CACHE_ROOT set CACHE_ROOT=%ROOT_DIR%\cache
-if not defined INSTALL_ROOT set INSTALL_ROOT=C:\GNUstep
+if not defined INSTALL_ROOT set INSTALL_ROOT=%VCPKG_ROOT%
 
 :: This is how we call into the MSYS2 shell. -full-path is needed so that
 :: projects can find Clang installed in Windows-land, but note that this is

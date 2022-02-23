@@ -92,7 +92,6 @@ if %errorlevel% neq 0 call :error_missing_command MSYS2, "'choco install msys2'"
 
 :: create directories
 if not exist "%SRCROOT%" (mkdir "%SRCROOT%" || exit 1)
-if not exist "%INSTALL_ROOT%\%ARCH%" (mkdir "%INSTALL_ROOT%\%ARCH%" || exit 1)
 
 :: run phases for debug/release
 for %%G in (%BUILD_TYPES%) do (
@@ -109,25 +108,18 @@ goto :eof
 :build
   echo.
   echo ######## BUILDING FOR %ARCH% %BUILD_TYPE% ########
-  
-  set INSTALL_PREFIX=%INSTALL_ROOT%\%ARCH%\%BUILD_TYPE%
+
+  if %BUILD_TYPE% == Debug (
+    set INSTALL_PREFIX=%INSTALL_ROOT%\installed\%ARCH%-windows\Debug
+  ) else if %BUILD_TYPE% == Release (
+    set INSTALL_PREFIX=%INSTALL_ROOT%\installed\%ARCH%-windows
+  ) else (
+    echo Error: invalid build type "%BUILD_TYPE%"
+    exit 1   
+  )
   
   for /f "usebackq delims=" %%i in (`call %BASH% 'cygpath -u "%INSTALL_PREFIX%"'`) do (
     set UNIX_INSTALL_PREFIX=%%i
-  )
-  
-  if not defined ONLY_PHASE (
-    :: keep backup of previous build if any
-    if exist "%INSTALL_PREFIX%.bak" (
-      rmdir /S /Q "%INSTALL_PREFIX%.bak" || exit 1
-    )
-    if exist "%INSTALL_PREFIX%" (
-      move /Y "%INSTALL_PREFIX%" "%INSTALL_PREFIX%.bak" || exit 1
-    )
-    :: remove previous failed build if any
-    if exist "%INSTALL_PREFIX%.failed" (
-      rmdir /S /Q "%INSTALL_PREFIX%.failed" || exit 1
-    )
   )
   
   for %%F in (%ROOT_DIR%\phases\??-*.*) do (
@@ -144,9 +136,6 @@ goto :eof
       call :build_phase
     )
   )
-  
-  :: remove backup if all went well
-  if exist "%INSTALL_PREFIX%.bak" (rmdir /S /Q "%INSTALL_PREFIX%.bak" || exit 1)
   
   :: don't update projects for subsequent build types to avoid mismatching builds
   set NO_UPDATE=true
