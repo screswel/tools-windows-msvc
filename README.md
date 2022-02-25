@@ -197,7 +197,7 @@ The MSYS2 installation is required to provide the Bash shell and Unix tools requ
 - pkg-config
 
 These can be installed via Pacman inside a MSYS2 shell:  
-`pacman -S --needed make autoconf2.69 automake libtool pkg-config`
+`pacman -S --needed make autoconf automake libtool pkg-config`
 
 Please make sure that you do _not_ have `gmake` installed in your MSYS2 environment, as it is not compatible but will be picked up by the project Makefiles. Running `which gmake` in MSYS2 should print "which: no gmake in ...".
 

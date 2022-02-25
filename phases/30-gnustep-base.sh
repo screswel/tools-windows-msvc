@@ -30,7 +30,7 @@ export PKG_CONFIG_LIBDIR=$VCPKG_LIBDIR/pkgconfig
 
 echo
 echo "### Running autoconf"
-autoconf
+WANT_AUTOCONF="2.69" autoreconf -fvi
 
 echo
 echo "### Running configure"
