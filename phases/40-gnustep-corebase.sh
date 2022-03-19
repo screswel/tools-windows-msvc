@@ -18,6 +18,21 @@ echo
 echo "### Loading GNUstep environment"
 . "$UNIX_INSTALL_PREFIX/share/GNUstep/Makefiles/GNUstep.sh"
 
+# VCPKG - TODO: use target triple
+VCPKG_BINDIR=`cygpath $VCPKG_ROOT`/installed/x64-windows/bin
+VCPKG_LIBDIR=`cygpath $VCPKG_ROOT`/installed/x64-windows/lib
+VCPKG_INCDIR=`cygpath $VCPKG_ROOT`/installed/x64-windows/include
+
+# VCPKG - configure script needs help (finding DLLs)
+export PATH=$PATH:$VCPKG_BINDIR
+
+# VCPKG - configure script needs help (finding pkg-config info)
+export PKG_CONFIG_LIBDIR=$VCPKG_LIBDIR/pkgconfig
+
+echo
+echo "### Running autoconf"
+WANT_AUTOCONF="2.69" autoreconf -fvi
+
 echo
 echo "### Running configure"
 ./configure \
@@ -26,9 +41,9 @@ echo "### Running configure"
   CC="`gnustep-config --variable=CC`" \
   CPP="`gnustep-config --variable=CPP`" \
   CXX="`gnustep-config --variable=CXX`" \
-  CFLAGS="$CFLAGS -I$UNIX_INSTALL_PREFIX/include" \
-  CPPFLAGS="$CPPFLAGS -I$UNIX_INSTALL_PREFIX/include" \
-  LDFLAGS="$LDFLAGS -L$UNIX_INSTALL_PREFIX/lib" \
+  CFLAGS="$CFLAGS -I$VCPKG_INCDIR" \
+  CPPFLAGS="$CPPFLAGS -I$VCPKG_INCDIR" \
+  LDFLAGS="$LDFLAGS -L$VCPKG_LIBDIR"
 
 echo
 echo "### Building"
