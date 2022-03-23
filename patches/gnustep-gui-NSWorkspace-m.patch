@@ -1,0 +1,15 @@
+diff --git a/Source/NSWorkspace.m b/Source/NSWorkspace.m
+index 41dd7e496..4445fb809 100644
+--- a/Source/NSWorkspace.m
++++ b/Source/NSWorkspace.m
+@@ -32,7 +32,10 @@
+ 
+ #import "config.h"
+ 
++// TODO - add to configure.ac
++#if defined(HAVE_UNISTD)
+ #include <unistd.h>
++#endif
+ #include <sys/types.h>
+ 
+ #if defined(HAVE_GETMNTINFO)

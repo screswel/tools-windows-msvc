@@ -1,0 +1,40 @@
+diff --git a/Source/NSStackView.m b/Source/NSStackView.m
+index 58b119dc6..39094712a 100644
+--- a/Source/NSStackView.m
++++ b/Source/NSStackView.m
+@@ -621,7 +621,7 @@
+           break;
+         default:
+           [NSException raise: NSInternalInconsistencyException
+-                      format: @"Attempt to add view %@ to unknown container %ld.", view, gravity];
++                      format: @"Attempt to add view %@ to unknown container %lld.", view, gravity];
+           break;
+         }
+     }
+@@ -648,7 +648,7 @@
+       break;
+     default:
+       [NSException raise: NSInternalInconsistencyException
+-                  format: @"Attempt insert view %@ at index %ld into unknown container %ld.", view, index, gravity];
++                  format: @"Attempt insert view %@ at index %llu into unknown container %lld.", view, index, gravity];
+       break;
+     }
+   [self _refreshView];
+@@ -679,7 +679,7 @@
+           break;
+         default:
+           [NSException raise: NSInternalInconsistencyException
+-                      format: @"Attempt get array of views from unknown gravity %ld.", gravity];
++                      format: @"Attempt get array of views from unknown gravity %lld.", gravity];
+           break;
+         }
+     }
+@@ -707,7 +707,7 @@
+           break;
+         default:
+           [NSException raise: NSInternalInconsistencyException
+-                      format: @"Attempt set array of views %@ into unknown gravity %ld.", views, gravity];
++                      format: @"Attempt set array of views %@ into unknown gravity %lld.", views, gravity];
+           break;
+         }
+     }

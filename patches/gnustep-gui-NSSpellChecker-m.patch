@@ -1,0 +1,14 @@
+diff --git a/Source/NSSpellChecker.m b/Source/NSSpellChecker.m
+index ede3d3bd3..900e690a8 100644
+--- a/Source/NSSpellChecker.m
++++ b/Source/NSSpellChecker.m
+@@ -62,9 +62,6 @@
+ #import "GNUstepBase/NSDebug+GNUstepBase.h"
+ #import "GNUstepGUI/GSServicesManager.h"
+ 
+-// prototype for function to create name for server
+-extern NSString *GSSpellServerName(NSString *checkerDictionary, NSString *language);
+-
+ // These are methods which we only want the NSSpellChecker to call.
+ // The protocol is defined here so that the outside world does not
+ // have access to these internal methods.

@@ -1,0 +1,20 @@
+diff --git a/Source/NSApplication.m b/Source/NSApplication.m
+index e7a9a3c50..ad87ac4ca 100644
+--- a/Source/NSApplication.m
++++ b/Source/NSApplication.m
+@@ -324,6 +324,15 @@ initialize_gnustep_backend(void)
+ 	[backend initializeBackend];
+       }
+ 
++#elif defined(WIN32)
++
++      // XXX - undefined reference to _OBJC_REF_CLASS_GSBackend if class method called directly.
++      {
++          Class backend = NSClassFromString(@"GSBackend");
++	        NSCAssert (backend != Nil, @"No GSBackend class, is gnustep-back.lib linked?");
++    	    [backend initializeBackend];
++      }
++
+ #else
+       /* GSBackend will be in a separate library linked in with the app.
+        This would be cleaner with ...classNamed: @"GSBackend", but that 

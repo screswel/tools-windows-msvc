@@ -1,0 +1,15 @@
+diff --git a/Source/NSAttributedString.m b/Source/NSAttributedString.m
+index 4328f0f97..7b311c700 100644
+--- a/Source/NSAttributedString.m
++++ b/Source/NSAttributedString.m
+@@ -60,6 +60,10 @@
+ #import "GNUstepGUI/GSTextConverter.h"
+ #import "GSGuiPrivate.h"
+ 
++#ifdef WIN32
++#define strncasecmp(x,y,z)  _strnicmp(x,y,z)
++#endif
++
+ /* Cache class pointers to avoid the expensive lookup by string. */ 
+ static Class dictionaryClass = nil;
+ static Class stringClass = nil;

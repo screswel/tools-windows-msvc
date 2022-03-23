@@ -1,0 +1,17 @@
+diff --git a/Source/NSPopUpButtonCell.m b/Source/NSPopUpButtonCell.m
+index fe019c167..6c045d542 100644
+--- a/Source/NSPopUpButtonCell.m
++++ b/Source/NSPopUpButtonCell.m
+@@ -178,12 +178,6 @@ static NSImage *_pbc_image[5];
+                     name: nil
+                   object: _menu];
+     }
+-  if (_selectedItem != nil)
+-    {
+-      // _selectedItem may be dead after the following ASSIGN statement,
+-      // so make sure we leave no dangling pointer behind.
+-      _selectedItem = nil;
+-    }
+   ASSIGN(_menu, menu);
+   if (_menu != nil)
+     {

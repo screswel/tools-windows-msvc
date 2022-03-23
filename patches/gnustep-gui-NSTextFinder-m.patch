@@ -1,0 +1,13 @@
+diff --git a/Source/NSTextFinder.m b/Source/NSTextFinder.m
+index 4082d645b..659c9b43e 100644
+--- a/Source/NSTextFinder.m
++++ b/Source/NSTextFinder.m
+@@ -104,7 +104,7 @@
+       // unsupported;
+       break;
+     default:
+-      NSLog(@"Unknown operation: %ld", op);
++      NSLog(@"Unknown operation: %lld", op);
+       break;
+     }
+ }

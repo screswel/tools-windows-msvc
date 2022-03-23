@@ -1,0 +1,13 @@
+diff --git a/Source/NSBox.m b/Source/NSBox.m
+index 3840d6b4c..096b8e4df 100644
+--- a/Source/NSBox.m
++++ b/Source/NSBox.m
+@@ -98,8 +98,6 @@
+ 
+ - (void) dealloc
+ {
+-  TEST_RELEASE(_border_color);
+-  TEST_RELEASE(_fill_color);
+   TEST_RELEASE(_cell);
+   [super dealloc];
+ }

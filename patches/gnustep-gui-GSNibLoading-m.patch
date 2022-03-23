@@ -1,0 +1,16 @@
+diff --git a/Source/GSNibLoading.m b/Source/GSNibLoading.m
+index 4b79f5376..473b7b594 100644
+--- a/Source/GSNibLoading.m
++++ b/Source/GSNibLoading.m
+@@ -1055,9 +1055,9 @@ static BOOL _isInInterfaceBuilder = NO;
+ 
+ - (NSString *) description
+ {
+-  return [NSString stringWithFormat: @"<%s: %lx> = <<className: %@, object: %@>>",
++  return [NSString stringWithFormat: @"<%s: %p> = <<className: %@, object: %@>>",
+ 		   GSClassNameFromObject(self), 
+-		   (unsigned long)self,
++		   self,
+ 		   _className,_object];
+ }
+ 

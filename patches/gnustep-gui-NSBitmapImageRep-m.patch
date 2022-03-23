@@ -1,0 +1,13 @@
+diff --git a/Source/NSBitmapImageRep.m b/Source/NSBitmapImageRep.m
+index dcd0acfea..b04527f16 100644
+--- a/Source/NSBitmapImageRep.m
++++ b/Source/NSBitmapImageRep.m
+@@ -442,7 +442,7 @@
+   if (!bps || !spp || !width || !height)
+     {
+       // Per Apple documentation, return nil if can't initialize.
+-      NSLog(@"Cannot initialize image with bps = %ld, spp = %ld, width = %ld, height = %ld", bps, spp, width, height);
++      NSLog(@"Cannot initialize image with bps = %lld, spp = %lld, width = %lld, height = %lld", bps, spp, width, height);
+       return nil;
+     }
+ 

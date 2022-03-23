@@ -1,0 +1,25 @@
+diff --git a/Source/NSComboBox.m b/Source/NSComboBox.m
+index baf997495..177ab6e79 100644
+--- a/Source/NSComboBox.m
++++ b/Source/NSComboBox.m
+@@ -487,6 +487,11 @@ static NSNotificationCenter *nc;
+     [super mouseDown: theEvent];
+ }
+ 
++#if 0
++/*
++ * XXX - NSComboBox does not inherit from NSTextView
++ */
++ 
+ - (BOOL) textView: (NSTextView *)textView doCommandBySelector: (SEL)command
+ {
+   if ([super textView: textView doCommandBySelector: command])
+@@ -499,6 +504,8 @@ static NSNotificationCenter *nc;
+   return NO;
+ }
+ 
++#endif
++
+ - (void) setFrame: (NSRect)frame
+ {
+   NSRect rect = NSMakeRect(frame.origin.x, frame.origin.y, frame.size.width, 21);

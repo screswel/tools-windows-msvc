@@ -1,0 +1,26 @@
+diff --git a/GNUmakefile b/GNUmakefile
+index 97e456771..5e098d3cc 100644
+--- a/GNUmakefile
++++ b/GNUmakefile
+@@ -52,20 +53,7 @@ doc=no
+ # The list of subproject directories
+ #
+ SUBPROJECTS = \
+-Source \
+-Images \
+-Sounds \
+-Model \
+-Tools \
+-Panels \
+-PrinterTypes \
+-TextConverters \
+-ColorPickers \
+-KeyBindings \
+-Resources \
+-Printing \
+-Themes \
+-Tests
++Source
+ 
+ # Build and install sounds, if sound support is present.
+ SUBPROJECTS += $(BUILD_SOUNDS)

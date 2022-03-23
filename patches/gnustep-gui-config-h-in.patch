@@ -1,0 +1,34 @@
+diff --git a/Headers/Additions/GNUstepGUI/config.h.in b/Headers/Additions/GNUstepGUI/config.h.in
+index 4abf6fdee..64475095c 100644
+--- a/Headers/Additions/GNUstepGUI/config.h.in
++++ b/Headers/Additions/GNUstepGUI/config.h.in
+@@ -18,9 +18,6 @@
+ /* Define to 1 if you have the <flite/flite.h> header file. */
+ #undef HAVE_FLITE_FLITE_H
+ 
+-/* Define to 1 if you have the pocketsphinx.h header file */
+-#undef HAVE_POCKETSPHINX_POCKETSPHINX_EXPORT_H
+-
+ /* Define to 1 if you have the `floorf' function. */
+ #undef HAVE_FLOORF
+ 
+@@ -78,6 +75,10 @@
+ /* Define to 1 if you have the <png.h> header file. */
+ #undef HAVE_PNG_H
+ 
++/* Define to 1 if you have the <pocketsphinx/pocketsphinx_export.h> header
++   file. */
++#undef HAVE_POCKETSPHINX_POCKETSPHINX_EXPORT_H
++
+ /* Define to 1 if you have the `QuantizeBuffer' function. */
+ #undef HAVE_QUANTIZEBUFFER
+ 
+@@ -144,7 +145,7 @@
+ /* Define to 1 if you have the <unistd.h> header file. */
+ #undef HAVE_UNISTD_H
+ 
+-/* mnt_fsname structure member name */
++/* mntent structure member name */
+ #undef MNT_FSNAME
+ 
+ /* mntent structure member name */

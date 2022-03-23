@@ -1,0 +1,13 @@
+diff --git a/Headers/AppKit/NSInterfaceStyle.h b/Headers/AppKit/NSInterfaceStyle.h
+index 7e28eb878..d44ab0a32 100644
+--- a/Headers/AppKit/NSInterfaceStyle.h
++++ b/Headers/AppKit/NSInterfaceStyle.h
+@@ -40,7 +40,7 @@ extern "C" {
+ @class NSResponder;
+ @class NSString;
+ 
+-typedef	enum {
++typedef	enum NSInterfaceStyle : NSInteger {
+   NSNoInterfaceStyle = 0,
+   NSNextStepInterfaceStyle = 1,
+   NSMacintoshInterfaceStyle = 2,

@@ -1,0 +1,15 @@
+diff --git a/Headers/AppKit/NSTextField.h b/Headers/AppKit/NSTextField.h
+index 067bb6463..62ed04be0 100644
+--- a/Headers/AppKit/NSTextField.h
++++ b/Headers/AppKit/NSTextField.h
+@@ -91,10 +91,6 @@
+ - (void)setDrawsBackground:(BOOL)flag;
+ - (void)setTextColor:(NSColor *)aColor;
+ - (NSColor *)textColor;
+-- (void) setPlaceholderString: (NSString *)string;
+-- (NSString *) placeholderString;
+-- (void) setPlaceholderAttributedString: (NSAttributedString *)string;
+-- (NSAttributedString *) placeholderAttributedString;
+ 
+ //
+ // Target and Action 

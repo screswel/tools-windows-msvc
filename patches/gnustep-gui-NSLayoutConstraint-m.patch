@@ -1,0 +1,15 @@
+diff --git a/Source/NSLayoutConstraint.m b/Source/NSLayoutConstraint.m
+index 50cafefb5..36e556f5a 100644
+--- a/Source/NSLayoutConstraint.m
++++ b/Source/NSLayoutConstraint.m
+@@ -565,8 +565,8 @@ static NSMutableArray *activeConstraints = nil;
+ 
+ - (NSString *) description
+ {
+-  return [NSString stringWithFormat: @"%@ <firstItem = %@, firstAttribute = %ld, relation = %ld, secondItem = %@, "
+-                   "secondAttribute = %ld, multiplier = %f, constant = %f, priority = %f>",
++  return [NSString stringWithFormat: @"%@ <firstItem = %@, firstAttribute = %lld, relation = %lld, secondItem = %@, "
++                   "secondAttribute = %lld, multiplier = %f, constant = %f, priority = %f>",
+                    [super description],
+                    _firstItem,
+                    _firstAttribute,

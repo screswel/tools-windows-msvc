@@ -1,0 +1,13 @@
+diff --git a/Source/NSSwitch.m b/Source/NSSwitch.m
+index 69eb873fe..eb1e85605 100644
+--- a/Source/NSSwitch.m
++++ b/Source/NSSwitch.m
+@@ -131,7 +131,7 @@
+ 
+ - (NSString *) stringValue
+ {
+-  return [NSString stringWithFormat: @"%ld", [self integerValue]];
++  return [NSString stringWithFormat: @"%lld", [self integerValue]];
+ }
+ 
+ - (void) setObjectValue: (id)obj
